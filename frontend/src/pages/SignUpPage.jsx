@@ -1,5 +1,5 @@
 import {useState} from "react"
-import {useAuthStore} from "../store/useauthStore"
+import {useAuthStore} from "../store/useAuthStore"
 import { Eye, EyeOff, Loader2, Lock, Mail, MessageSquare, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -10,7 +10,7 @@ const SignUpPage = () =>{
     email: "",
     password: "",
   });
-  const {signup, isSigningUP} = useAuthStore();
+  const {signup, isSigningUp} = useAuthStore();
   
   const validateForm = () =>{}
   const handleSubmit = (e) =>{
@@ -88,7 +88,7 @@ const SignUpPage = () =>{
                 />
                 <button
                   type="button"
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  className="absolute inset-y-1 right-1 pr-3 flex items-center"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -100,18 +100,38 @@ const SignUpPage = () =>{
               </div>
             </div>
 
+
+            <button type="submit" className="btn btn-primary w-full" disabled={isSigningUp}>
+              {isSigningUp ? (
+                <>
+                  <Loader2 className="size-5 animate-spin" />
+                  Loading...
+                </>
+              ) : (
+                "Create Account"
+              )}
+            </button>
+
           </form>
 
-
-
-
-
-
-
-
-
+          <div className="text-center">
+            <p className="text-base-content/60">
+              Already have an account?{" "}
+              <Link to="/login" className="link link-primary">
+                Sign in
+              </Link>
+            </p>
+          </div>
+        </div>
       </div>
-      </div>
+
+      {/* right side */}
+
+
+
+
+
+
   </div>
 }
 export default SignUpPage;
