@@ -14,6 +14,16 @@ const  userSchema  = new mongoose.Schema(
     password:{
       type:String,
       required:true,
-    }
-  }
-)
+      minlength:6,
+    },
+    profilePic: {
+      type :String,
+      default:"",
+    },
+  },
+  { timestamps :true}
+);
+
+const User = mongoose.model("User",userSchema); 
+
+export default User;
