@@ -20,6 +20,11 @@ export const useAuthStore = create((set)=>({
         }
     },
     signup : async(data)=>{
+        set({isSigningUp:true});
+        try{
 
-    }
+        }catch(error){
+
+        }
+    },
 }));
