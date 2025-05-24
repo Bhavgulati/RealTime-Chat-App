@@ -1,5 +1,38 @@
+import {create} from "zustand";
+import toast from "react-hot-toast";
+import {axiosInstance} from "../lib/axios"
 
-//add set, get to useChatStore variables
+export const useChatStore = create((set,get) => ({
+    messages: [],
+    users: [],
+    selectedUser: null,
+    isUsersLoading: false,
+    isMessagesLoading: false,
+
+    getUsers: async () => {
+        set({ isUsersLoading: true });
+        try {
+        const res = await axiosInstance.get("/messages/users");
+        set({ users: res.data });
+        } catch (error) {
+        toast.error(error.response.data.message);
+        } finally {
+        set({ isUsersLoading: false });
+        }
+    },
+
+    getMessages: async (userId) => {
+        set({ isMessagesLoading: true });
+        try {
+        const res = await axiosInstance.get(`/messages/${userId}`);
+        set({ messages: res.data });
+        } catch (error) {
+        toast.error(error.response.data.message);
+        } finally {
+        set({ isMessagesLoading: false });
+        }
+    },
+    //add set, get to useChatStore variables
 sendMessage: async(messageData) =>{
     const {selectedUser,messages} =get();
     try{
@@ -9,3 +42,6 @@ sendMessage: async(messageData) =>{
         toast.error(error.response.data.message);
     }
 },
+    //optimise
+    setSelectedUser: (selectedUser) => ServiceWorker({ selectedUser }),
+}))
