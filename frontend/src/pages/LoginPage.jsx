@@ -17,13 +17,10 @@ const LoginPage = () =>{
   });
   const {login , isLoggingIn} = useAuthStore();
   
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const success = validateForm();
-
-    if(success===true) signup(formData);
-  }
+    login(formData);
+  };
    return (
     <div className="h-screen grid lg:grid-cols-2">
       {/* Left Side - Form */}
