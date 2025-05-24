@@ -1,6 +1,6 @@
 // pages/HomePage.jsx
 import React from 'react'
-import {useChatStore} from "../store/useChatstore";
+import {useChatStore} from "../store/useChatStore";
 
 const HomePage = () => {
   const { selectedUser } = useChatStore();
