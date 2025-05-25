@@ -16,19 +16,22 @@ import { useThemeStore } from '/store/useThemeStore';
 import {Loader } from "lucide-react";
 
 const App = () => {
-  const {authUser,checkAuth,isCheckingAuth,onlineUsers} = useAuthStore();
+  const {authUser,checkAuth,isCheckingAuth,onlineUse rs} = useAuthStore();
+  const {theme}=useThemeStore();
 
-  const {theme}=useThemeStore() 
+  console.log({onlineUsers});
+  
   useEffect(()=>{
     checkAuth();
-    }, [checkAuth]);
-    console.log({authUser})
+  }, [checkAuth]);
 
-    if(isCheckingAuth && !authUser) return (
-      <div className="flex items-center justify-center h-screen">
-        <Loader className="size-10 animate-spin"/>
-      </div>
-    );
+  console.log({authUser})
+
+  if(isCheckingAuth && !authUser) return (
+    <div className="flex items-center justify-center h-screen">
+      <Loader className="size-10 animate-spin"/>
+    </div>
+  );
   return (
     <div data-theme={theme}>
       <Navbar />

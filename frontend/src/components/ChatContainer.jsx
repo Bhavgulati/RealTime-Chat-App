@@ -10,11 +10,15 @@ import MessageInput from "./MessageInput";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
 const ChatContainer = ()=>{
     const {messages,getMessages,isMessagesLoading,
-        selectedUser} = useChatStore()
+        selectedUser, subscribeToMessages,unsubscribeFromMessages} = useChatStore()
     const {authStore}= useAuthStore();
     useEffect(()=>{
-        getMessages(selectedUser._id)
-    },[selectedUser._id],getMessages)
+        getMessages(selectedUser._id);
+
+        subscribeToMessages();
+
+        return() => unsubscribeFromMessages();
+    },[selectedUser._id,getMessages,subscribeToMessages,unsubscribeFromMessages]);
 
 
     if(isMessagesLoading) return(
