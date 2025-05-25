@@ -1,6 +1,6 @@
 import {useChatStore} from "../store/useChatStore";
-import {useEffect} from "react";
-
+import {useEffect,useRef} from "react";
+import {useAuthStore} from "../store/useAuthStore";
 
 import {formatMessageTime} from "../lib/utils"
 import ChatHeader from "./ChatHeader";
@@ -8,6 +8,8 @@ import ChatHeader from "./ChatHeader";
 
 import MessageInput from "./MessageInput";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
+
+
 const ChatContainer = ()=>{
     const {messages,getMessages,isMessagesLoading,
         selectedUser, subscribeToMessages,unsubscribeFromMessages} = useChatStore()
@@ -30,7 +32,7 @@ const ChatContainer = ()=>{
 
     if(isMessagesLoading) return(
         <div className = "flex-1 flex flex-col overflow-auto">
-            <ChatHeadre/>
+            <ChatHeader/>
             <MessageSkeleton/>
             <MessageInput/>
         </div>

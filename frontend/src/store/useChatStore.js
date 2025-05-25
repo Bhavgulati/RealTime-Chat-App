@@ -63,5 +63,5 @@ export const useChatStore = create((set,get) => ({
     }
 
     //optimise
-    setSelectedUser: (selectedUser) => ServiceWorker({ selectedUser }),
+    setSelectedUser: (selectedUser) => set({ selectedUser }),
 }))
