@@ -1,0 +1,21 @@
+{
+  "name": "real-time-chat-app",
+  "version": "1.0.0",
+  "description": "Welcome to a sleek, modern, and highly responsive real-time chat experience! This application is engineered to provide seamless communication, built on a robust stack of cutting-edge technologies.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bhavgulati/RealTime-Chat-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bhavgulati/RealTime-Chat-App/issues"
+  },
+  "homepage": "https://github.com/Bhavgulati/RealTime-Chat-App#readme"
+}
