@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Bhavgulati/RealTime-Chat-App/issues"
   },
-  "homepage": "https://github.com/Bhavgulati/RealTime-Chat-App#readme"
+  "homepage": "https://github.com/Bhavgulati/RealTime-Chat-App#readme",
+  "dependencies": {
+    "path-to-regexp": "^8.2.0"
+  }
 }
